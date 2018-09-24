@@ -3,7 +3,10 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import  {NextPage } from '../pages/next/next';
+ import { HomePage } from '../pages/home/home';
+import { GeoPage } from '../pages/geo/geo';
+import { JarakPage } from '../pages/jarak/jarak';
 @Component({
   templateUrl: 'app.html'
 })
@@ -19,4 +22,3 @@ export class MyApp {
     });
   }
 }
-

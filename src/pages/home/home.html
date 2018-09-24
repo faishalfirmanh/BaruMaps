@@ -4,11 +4,46 @@
       Ionic Blank
     </ion-title>
   </ion-navbar>
+  <script src="build/geo.js"></script>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  
+ <button ion-button (click)="openNextPage()">Lihat nama </button>
+ <button ion-button (click)="openTrack()">Lihat Maps </button>
+ <button ion-button (click)="openJarak()">Jarak </button>
+
+ <div #map id="map"></div>
+ <ion-card>
+          <form (ngSubmit)="saveTracking()">
+            <ion-item>
+            <ion-label fixed>lat</ion-label>
+            <ion-input type="text" value="{{ latitude }}"></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label fixed>long</ion-label>
+            <ion-input type="text" value="{{ longlitude }}"></ion-input>
+          </ion-item>
+
+            <ion-item>
+            <ion-label color="primary" floating>nama</ion-label>
+            <ion-input [(ngModel)]="tracking.name" name="name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>latitude</ion-label>
+              <ion-select [(ngModel)]="tracking.latitude" name="latitude">
+                <ion-option value="{{ latitude }}">lat</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>longlitude</ion-label>
+              <ion-select [(ngModel)]="tracking.longlitude" name="longlitude">
+                <ion-option value="{{ longlitude }}">long</ion-option>
+              </ion-select>
+            </ion-item>
+            <button ion-button full type="submit">Save</button>
+          </form>
+    </ion-card>
 </ion-content>
