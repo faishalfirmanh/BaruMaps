@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import  {NextPage } from '../pages/next/next';
  import { HomePage } from '../pages/home/home';
 import { GeoPage } from '../pages/geo/geo';
-import { JarakPage } from '../pages/jarak/jarak';
+
 @Component({
   templateUrl: 'app.html'
 })
