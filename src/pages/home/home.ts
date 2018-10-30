@@ -5,7 +5,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 import {NgModule} from '@angular/core'; //TAMBAH BARU
 import {GeoPage } from '../geo/geo';
 // import {RequestOptions, Request, RequestMethod} from '@angular/http';
-import {JarakPage} from '../jarak/jarak'; 
 // import { TrackingPage } from '../tracking/tracking';
 import { TrackingService } from '../../tracking/tracking.services';
 import { Tracking } from '../../model/tracking.model';
@@ -33,9 +32,7 @@ export class HomePage {
  openTrack(){
    this.navCtrl.push(GeoPage);
  }
-openJarak(){
-  this.navCtrl.push(JarakPage);
-}
+
 
   constructor(public navCtrl: NavController,private plt: Platform, public geolocation: Geolocation, public trackingService: TrackingService) {
 

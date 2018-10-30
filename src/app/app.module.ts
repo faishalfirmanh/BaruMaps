@@ -12,14 +12,13 @@ import { ListProvider } from '../providers/list/list';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { TrackingService } from '../tracking/tracking.services';
-import { JarakPage } from '../pages/jarak/jarak';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     NextPage,
-    GeoPage,
-    JarakPage
+    GeoPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +31,6 @@ import { JarakPage } from '../pages/jarak/jarak';
     MyApp,
     HomePage,
     NextPage,
-    JarakPage,
     GeoPage
   ],
   providers: [
