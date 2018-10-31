@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController, reorderArray } from 'ionic-angular';
 // import { ListProvider } from '../../providers/list/list';
 import { TrackingService } from '../../tracking/tracking.services';
-import { HomePage } from '../home/home';
 import { GeoPage } from '../geo/geo';
+import { TampilPage } from '../tampil/tampil';
+
 /**
  * Generated class for the NextPage page.
  *
@@ -34,6 +35,9 @@ public reorderIsEnabled= false;
   }
     goToArchivePage(){
       this.navCtrl.push(GeoPage);
+    }
+    bukaLokasi(){
+      this.navCtrl.push(TampilPage);
     }
 
 
@@ -87,6 +91,7 @@ this.trackingService.getUsers()
   console.log(this.users);
 });
 }
+
 
 
 

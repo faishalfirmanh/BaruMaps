@@ -1,13 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ListProvider } from '../../providers/list/list';
 import { TrackingService } from '../../tracking/tracking.services';
-import { Tracking } from '../../model/tracking.model';
 import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMapOptions, GoogleMaps, Marker, GoogleMapsEvent } from '@ionic-native/google-maps';
 declare var google;
-declare var geocoder;
-declare var map;
+// declare var geocoder;
+// declare var map;
 /**
 * Generated class for the GeoPage page.
 *
@@ -88,13 +85,13 @@ export class GeoPage {
 	addMarker(): void {
 		this.users.map(data => {
 			const latLng = new google.maps.LatLng(data.latitude, data.longlitude);
-			
+
 			let marker = new google.maps.Marker({
 				map: this.map,
 				animation: google.maps.Animation.DROP,
 				position: latLng,
 			});
-			
+
 			this.markers.push(marker);
 		})
 	}

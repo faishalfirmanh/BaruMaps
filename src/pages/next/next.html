@@ -28,11 +28,11 @@
 
   </ion-list>
   <ion-card>
-    <ion-list inset>
+    <!-- <ion-list inset> -->
       <ion-item *ngFor="let user of users">
-         <button ion-button full name="star">{{ user.name}}</button>
+         <button ion-button (click)="bukaLokasi()">{{ user.name }}</button>
       </ion-item>
-      </ion-list>
+      <!-- </ion-list> -->
   </ion-card>
 
 </ion-content>

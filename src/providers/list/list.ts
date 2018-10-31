@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
-let headerOptions: any = { 'Content-Type': 'application/json' };
-let headers = new Headers(headerOptions);
+
 
 /*
   Generated class for the ListProvider provider.

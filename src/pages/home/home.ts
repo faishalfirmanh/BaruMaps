@@ -1,11 +1,9 @@
-import { Component, ElementRef } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 import  { NextPage } from '../next/next';
 import { Geolocation } from '@ionic-native/geolocation';
-import {NgModule} from '@angular/core'; //TAMBAH BARU
-import {GeoPage } from '../geo/geo';
-// import {RequestOptions, Request, RequestMethod} from '@angular/http';
-// import { TrackingPage } from '../tracking/tracking';
+// import { NgModule } from '@angular/core'; //TAMBAH BARU
+import { GeoPage } from '../geo/geo';
 import { TrackingService } from '../../tracking/tracking.services';
 import { Tracking } from '../../model/tracking.model';
 
@@ -34,7 +32,7 @@ export class HomePage {
  }
 
 
-  constructor(public navCtrl: NavController,private plt: Platform, public geolocation: Geolocation, public trackingService: TrackingService) {
+  constructor(public navCtrl: NavController,public geolocation: Geolocation, public trackingService: TrackingService) {
 
           this.geolocation.getCurrentPosition().then((resp) => {
             let userLocations = {

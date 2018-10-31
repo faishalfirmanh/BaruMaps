@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Tracking } from '../model/tracking.model';
 import { Geolocation } from '@ionic-native/geolocation';
-const httpOptions = {
-    headers: new HttpHeaders({'Content-Type' : 'application/json'})
-};
 
 
 @Injectable()
@@ -20,7 +17,7 @@ export class TrackingService {
 
     }
 
-  
+
 
     private trackingUrl = this.apiUrl+'/item';
 

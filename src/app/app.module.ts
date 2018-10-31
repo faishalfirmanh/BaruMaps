@@ -8,17 +8,18 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NextPage } from '../pages/next/next';
 import { GeoPage } from '../pages/geo/geo';
-import { ListProvider } from '../providers/list/list';
+//import { ListProvider } from '../providers/list/list';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { TrackingService } from '../tracking/tracking.services';
-
+import { TampilPage } from '../pages/tampil/tampil';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     NextPage,
-    GeoPage
+    GeoPage,
+    TampilPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,8 @@ import { TrackingService } from '../tracking/tracking.services';
     MyApp,
     HomePage,
     NextPage,
-    GeoPage
+    GeoPage,
+    TampilPage
   ],
   providers: [
     StatusBar,
