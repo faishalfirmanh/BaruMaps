@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController, reorderArray } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams,AlertController, reorderArray, ToastController } from 'ionic-angular';
 // import { ListProvider } from '../../providers/list/list';
 import { TrackingService } from '../../tracking/tracking.services';
 import { GeoPage } from '../geo/geo';
 import { TampilPage } from '../tampil/tampil';
+import { SelectSearchableComponent } from 'ionic-select-searchable';
 
 /**
  * Generated class for the NextPage page.
@@ -20,64 +21,68 @@ import { TampilPage } from '../tampil/tampil';
 export class NextPage {
 
 	[x: string]: any;
-	// alertController: any;
-public reorderIsEnabled= false;
+	// alertController: any;/
+ @ViewChild('myselect') selectComponent: SelectSearchableComponent;
 	tracking: any[];
-  users: any;
-  public todos=[];
-    name: string;
-    lihatSession(){
-       this.navCtrl.push(GeoPage);
-    }
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public trackingService: TrackingService, private alertController: AlertController) {
+  //users: any;
+  //
+  peta = null;
+  user = null;
+  userIds = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public trackingService: TrackingService, private toastCtrl: ToastController) {
    this.getUsers();
-  // this.ionViewDidLoad();
+
   }
-    goToArchivePage(){
-      this.navCtrl.push(GeoPage);
-    }
-    bukaLokasi(){
-      this.navCtrl.push(TampilPage);
-    }
+  userChanged(event: { component: SelectSearchableComponent, value: any}) {
+    // User was selected
+  }
+  onClose() {
+   let toast = this.toastCtrl.create({
+     message: 'Thanks for your selection',
+     duration: 2000
+   });
+   toast.present();
+ }
 
+ openFromCode() {
+   this.selectComponent.open();
+ }
 
-    toggleReorder(){
-      this.reorderIsEnabled= !this.reorderIsEnabled;
-    }
-    itemReordered($event){
-      reorderArray(this.todos, $event);
+    //
+    // bukaLokasi(jenis, kelamin,maps){
+    //   jenis = jenis || 'inputan kosong'
+    //   kelamin = 'sayang'
+    //   this.navCtrl.push(TampilPage,{
+    //   data:jenis
+    //   });
+    // }
+    // users =[{
+    //   id:1,
+    //   name:'mojokerto',
+    //   lat:123
+    // },
+    // {
+    //   id:2,
+    //   name:'surabya',
+    //   lat:101
+    // },
+    // {
+    //   id:3,
+    //   name:'gombek',
+    //   lat:555
+    // }]
 
-    }
-    openTodoAlert(){
-    	let addTodoAlert = this.alertController.create({
-    		title:"Add A todo",
-    		message:"Enter your todo",
-    		inputs:[
-    		{
-    			type:"text",
-    			name:"addTodoInput"
-    		}],
-    		buttons:[
-    		{
-    			text:"Cancel"
-    		},
-    		{
-    			text:"Add Todo",
-    			handler:(inputData)=>{
-    				let todoText;
-    				todoText= inputData.addTodoInput;
-    				this.todos.push(todoText);
-    			}
+    bukaLokasi(users){
 
-    		}]
-    	});
-    	addTodoAlert.present()
+      users = users || 'inputan kosong'
+      this.navCtrl.push(TampilPage,{
+      data:users
+      });
     }
 
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TrackingPage');
    this.trackingService.getTracking().subscribe(
         data => {this.tracking = data;
           console.log(data);

@@ -30,8 +30,10 @@ public get mapElement(): ElementRef {
   return this._mapElement;
 }
 map:any
-
+jenis: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,public trackingService: TrackingService, public geolocation: Geolocation) {
+    this.users = navParams.get('data'); //jenis ini nanti digunakan untuk tampil {{}} di htmlnya
+
   }
 
   getUsers() {
@@ -45,7 +47,8 @@ map:any
   loadMap() {
 
 		this.geolocation.getCurrentPosition().then((position) => {
-			//let latLng = new google.maps.LatLng(5.899890,95.323302);
+			// let latLng = new google.maps.LatLng(5.899890,95.32330);
+
 			let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
 			let mapOptions = {
@@ -55,7 +58,7 @@ map:any
 			}
 
 			this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-			this.getUsers(latLng);
+			this.getUsers();
 		}, (err) => {
 			console.log(err);
 		});
@@ -63,7 +66,11 @@ map:any
 
 	}
   ionViewDidLoad() {
+    //let inputan = console.log(this.navParams.get('data')) //let nama variabel terserah
+
+    //let name = console.log(this.navParams.get('name'))
     this.loadMap();
+    // console.log(this.navParams.get('title'));
   }
   addMarker(): void {
 		this.users.map(data => {

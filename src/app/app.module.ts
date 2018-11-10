@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { TrackingService } from '../tracking/tracking.services';
 import { TampilPage } from '../pages/tampil/tampil';
+import { SelectSearchableModule } from 'ionic-select-searchable';
 @NgModule({
   declarations: [
     MyApp,
@@ -25,6 +26,7 @@ import { TampilPage } from '../pages/tampil/tampil';
     BrowserModule,
     HttpClientModule,
     HttpModule,
+    SelectSearchableModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

@@ -9,30 +9,32 @@
   <ion-navbar>
     <ion-title>next</ion-title>
   </ion-navbar>
-  <!-- <button ion-button (click)="openTodoAlert()">
-     		<ion-icon name="add"></ion-icon>
-     	</button> -->
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list [reorder]="reorderIsEnabled" (ionItemReorder)="itemReordered($event)">
-  	<ion-item-sliding *ngFor="let todo of todos">
-  	<ion-item>{{todo}}</ion-item>
-  	<ion-item-options side="right">
-  	<button color="danger" ion-button>
-  		<ion-icon name="trash"></ion-icon>
-  	</button>
-  	</ion-item-options>
-  	</ion-item-sliding>
+  <!-- <ion-card> -->
+      <!-- <ion-item *ngFor="let user of users"> -->
+         <!-- <button ion-button (click)="bukaLokasi()">{{ user.name }}</button> -->
+      <!-- </ion-item> -->
+<ion-item>
+      <ion-label>Select user</ion-label>
+       <select-searchable
+       item-content
+       [isMultiple]="true"
+        [(ngModel)]="userIds"
+        [items]="users"
+        itemValueField="id_lokasi"
+        itemTextField="name"
+        [canSearch]="true"
+       (onChange)="userChanged($event)"
+       (onClose)="onClose($event)">
+       </select-searchable>
+          <!-- <ion-input placeholder='Your fav color...' #jenis></ion-input> -->
+</ion-item>
+<button ion-button full color="primary" (click)="bukaLokasi()">Open Select</button>
+        <!-- <button ion-button (click)="bukaLokasi(jenis.value)">tekan</button> -->
+  <!-- </ion-card> -->
 
-  </ion-list>
-  <ion-card>
-    <!-- <ion-list inset> -->
-      <ion-item *ngFor="let user of users">
-         <button ion-button (click)="bukaLokasi()">{{ user.name }}</button>
-      </ion-item>
-      <!-- </ion-list> -->
-  </ion-card>
 
 </ion-content>
